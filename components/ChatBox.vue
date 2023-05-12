@@ -108,6 +108,8 @@ watch(
       </div>
       <!-- Footer -->
       <footer class="p-2">
+        <!-- setup input element as a template ref [see ln:27] to make it reactive. Now reactive state changes when ENTER pressed-->
+        <!-- newMessage is updated/created and emitted. -->
         <input
           ref="input"
           class="input w-full px-2 block"
@@ -126,6 +128,8 @@ watch(
 
         <div class="h-6 py-1 px-2 text-sm italic">
           <span v-if="usersTyping.length">
+            <!-- The map() method creates a new array populated with the results of calling a 
+            provided function on every element in the calling array. in this case, join each user.name [in user array] with text "and"-->
             {{ usersTyping.map((user) => user.name).join(" and ") }}
             {{ usersTyping.length === 1 ? "is" : "are" }} typing
           </span>
